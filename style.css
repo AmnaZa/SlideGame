@@ -1,13 +1,13 @@
 #puzzle-container {
-    width: 600px;
-    height: 600px;
-    border: 1px solid;
+    width: 800px;
+    height: 700px;
+    border: 3px solid red;
     position: relative;
 }
 .puzzle-item {
     width: 200px;
     height: 200px;
-    border: 1px solid;
+    border: 1px solid blue;
     position: absolute;
     display: flex;
     justify-content: center;
