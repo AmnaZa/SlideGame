@@ -1,12 +1,11 @@
 const puzzleContainer = document.querySelector("#puzzle-container")
-            let puzzle = []
-            let size = 3
+    let puzzle = []
+    let size = 3
 
-            generatePuzzle()
-            randomizePuzzle()
-            renderPuzzle()
-            handleInput()
-
+        generatePuzzle()
+        randomizePuzzle()
+        renderPuzzle()
+        handleInput()
             function getRow(pos) {
                 return Math.ceil(pos / size)
             }
@@ -40,6 +39,19 @@ const puzzleContainer = document.querySelector("#puzzle-container")
                         </div>
                     `
                 }
+            }
+            function randomizePuzzle() {
+                const randomValues = getRandomValues()
+                // console.log(randomValues)
+                let i = 0
+                for (let puzzleItem of puzzle) {
+                    puzzleItem.value = randomValues[i]
+                    i++
+                }
+
+                const puzzleWithValueOf9 = puzzle.find((item) => item.value === size * size)
+                puzzleWithValueOf9.disabled = true
+                // console.log(puzzle)
             }
 
             
