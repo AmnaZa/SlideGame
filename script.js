@@ -53,5 +53,38 @@ const puzzleContainer = document.querySelector("#puzzle-container")
                 puzzleWithValueOf9.disabled = true
                 // console.log(puzzle)
             }
+            function getRandomValues() {
+                const values = []
+                for (let i = 1; i <= size * size; i++) {
+                    values.push(i)
+                }
+
+                const randomValues = values.sort(() => Math.random() - 0.5)
+                return randomValues
+            }
+
+            function handleInput() {
+                document.addEventListener("keydown", handleKeyDown)
+            }
+
+            function handleKeyDown(e) {
+                console.log(e.key)
+                switch (e.key) {
+                    case "ArrowLeft":
+                        moveLeft()
+                        break
+                    case "ArrowRight":
+                        moveRight()
+                        break
+                    case "ArrowUp":
+                        moveUp()
+                        break
+                    case "ArrowDown":
+                        moveDown()
+                        break
+                }
+                renderPuzzle()
+            }
+
 
             
