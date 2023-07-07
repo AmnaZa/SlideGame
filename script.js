@@ -85,6 +85,34 @@ const puzzleContainer = document.querySelector("#puzzle-container")
                 }
                 renderPuzzle()
             }
+            function moveLeft() {
+                const emptyPuzzle = getEmptyPuzzle()
+                const rightPuzzle = getRightPuzzle()
+                if (rightPuzzle) {
+                    swapPositions(emptyPuzzle, rightPuzzle, true)
+                }
+            }
+            function moveRight() {
+                const emptyPuzzle = getEmptyPuzzle()
+                const leftPuzzle = getLeftPuzzle()
+                if (leftPuzzle) {
+                    swapPositions(emptyPuzzle, leftPuzzle, true)
+                }
+            }
+            function moveUp() {
+                const emptyPuzzle = getEmptyPuzzle()
+                const belowPuzzle = getBelowPuzzle()
+                if (belowPuzzle) {
+                    swapPositions(emptyPuzzle, belowPuzzle, false)
+                }
+            }
+            function moveDown() {
+                const emptyPuzzle = getEmptyPuzzle()
+                const abovePuzzle = getAbovePuzzle()
+                if (abovePuzzle) {
+                    swapPositions(emptyPuzzle, abovePuzzle, false)
+                }
+            }
 
 
             
