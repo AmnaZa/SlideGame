@@ -1,4 +1,5 @@
 # SlideGame
+<img width="1224" alt="Screenshot 2023-07-08 at 5 05 03 PM" src="https://github.com/AmnaZa/SlideGame/assets/130778709/5c08690d-7b25-4705-bd46-da566c0873d0">
 
 Mod 1: The DOM Based Game
 
