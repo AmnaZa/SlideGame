@@ -15,17 +15,21 @@ const puzzleContainer = document.querySelector("#puzzle-container")
         timerInterval = setInterval(updateTimer, 1000);
         
         function updateTimer() {
-          timeRemaining--;
-        
-          // Check if the time limit has been reached
-          if (timeRemaining <= 0) {
-            stopTimer();
-            gameOver();
+            timeRemaining--;
+          
+            // Check if the time limit has been reached
+            if (timeRemaining <= 0) {
+              stopTimer();
+              gameOver();
+            } else if (timeRemaining === 10) {
+              // Display a warning message when 10 seconds are remaining
+              showModal("Warning", "Only 10 seconds left!");
+            }
+          
+            const timerElement = document.getElementById("timer");
+            timerElement.textContent = formatTime(timeRemaining);
           }
-        
-          const timerElement = document.getElementById("timer");
-          timerElement.textContent = formatTime(timeRemaining);
-        }
+          
         
         function formatTime(time) {
           const minutes = Math.floor(time / 60);
@@ -39,15 +43,33 @@ const puzzleContainer = document.querySelector("#puzzle-container")
         
         // Stop the timer
         function stopTimer() {
-          clearInterval(timerInterval);
+            clearInterval(timerInterval);
+            const timerElement = document.getElementById("timer");
+            timerElement.style.display = "none"; // Hide the timer
         }
+        
         
         // Game over function
         function gameOver() {
-          // Perform game over actions (e.g., display a message, disable puzzle input)
-          window.alert("Game over!");
-          // Additional code for game over actions...
+            stopTimer();
+            const modalContent = document.querySelector(".modal-content");
+            modalContent.innerHTML = `
+                <h3>Game Over</h3>
+                <p>Your time is up! You have completed the game.</p>
+                <button onclick="resetGame()">OK</button>
+            `;
+            const customModal = document.querySelector("#custom-modal");
+            customModal.style.display = "flex"; // Make the dialog box visible
+        
+            // Disable game input by removing the event listener
+            document.removeEventListener("keydown", handleKeyDown);
         }
+        
+        
+        function resetGame() {
+            location.reload(); // Reload the page to reset the game
+        }
+        
 
             function getRow(pos) {
                 return Math.ceil(pos / size)
@@ -111,23 +133,21 @@ const puzzleContainer = document.querySelector("#puzzle-container")
             }
 
             function handleKeyDown(e) {
-                console.log(e.key)
-                switch (e.key) {
-                    case "ArrowLeft":
-                        moveLeft()
-                        break
-                    case "ArrowRight":
-                        moveRight()
-                        break
-                    case "ArrowUp":
-                        moveUp()
-                        break
-                    case "ArrowDown":
-                        moveDown()
-                        break
+                e.preventDefault(); // Prevent the default scrolling behavior
+            
+                if (e.key === "ArrowUp") {
+                    moveUp();
+                } else if (e.key === "ArrowDown") {
+                    moveDown();
+                } else if (e.key === "ArrowLeft") {
+                    moveLeft();
+                } else if (e.key === "ArrowRight") {
+                    moveRight();
                 }
-                renderPuzzle()
+            
+                renderPuzzle();
             }
+            
             function moveLeft() {
                 const emptyPuzzle = getEmptyPuzzle()
                 const rightPuzzle = getRightPuzzle()
