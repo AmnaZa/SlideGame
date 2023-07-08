@@ -6,6 +6,49 @@ const puzzleContainer = document.querySelector("#puzzle-container")
         randomizePuzzle()
         renderPuzzle()
         handleInput()
+
+        let timerInterval;
+        let timeLimit = 60; // Set the time limit in seconds
+        let timeRemaining = timeLimit;
+        
+        // Start the timer
+        timerInterval = setInterval(updateTimer, 1000);
+        
+        function updateTimer() {
+          timeRemaining--;
+        
+          // Check if the time limit has been reached
+          if (timeRemaining <= 0) {
+            stopTimer();
+            gameOver();
+          }
+        
+          const timerElement = document.getElementById("timer");
+          timerElement.textContent = formatTime(timeRemaining);
+        }
+        
+        function formatTime(time) {
+          const minutes = Math.floor(time / 60);
+          const seconds = time % 60;
+          return `${padZero(minutes)}:${padZero(seconds)}`;
+        }
+        
+        function padZero(num) {
+          return num.toString().padStart(2, "0");
+        }
+        
+        // Stop the timer
+        function stopTimer() {
+          clearInterval(timerInterval);
+        }
+        
+        // Game over function
+        function gameOver() {
+          // Perform game over actions (e.g., display a message, disable puzzle input)
+          window.alert("Game over!");
+          // Additional code for game over actions...
+        }
+
             function getRow(pos) {
                 return Math.ceil(pos / size)
             }
@@ -181,5 +224,3 @@ const puzzleContainer = document.querySelector("#puzzle-container")
             function getPuzzleByPos(pos) {
                 return puzzle.find((item) => item.position === pos)
             }
-
-            
