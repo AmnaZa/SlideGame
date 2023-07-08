@@ -1,49 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Slide Puzzle</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
-    <body>
-        
-        <div class="game-container">
-            <h1>Slide Puzzle</h1>
-            <div id="puzzle-container"></div>
-            <div id="timer-container">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slide Puzzle</title>
+    <link rel="stylesheet" type="text/css" href="style.css"> <!-- Linking an external CSS file -->
+</head>
+<body>
+    <div class="game-container">
+        <h1>Slide Puzzle</h1>
+        <div id="puzzle-container"></div> <!-- Placeholder for the puzzle grid -->
+        <div id="timer-container">
             <h3>Time</h3>
-            <div id="timer">00:00</div>
-            </div>
+            <div id="timer">00:00</div> <!-- Placeholder for the timer display -->
         </div>
-        <div class="instruction-container">
-              <h3>Instructions</h3>
-              <p>
-                1. Objective: Arrange the puzzle pieces in the correct order to complete the puzzle.<br>
-
-                2. Game Controls: Use the arrow keys on your keyboard to slide the puzzle pieces in the desired direction.<br>
-                
-                3. Movement: You can only move the puzzle piece that is adjacent to the empty space. Use this to your advantage to shift the pieces and solve the puzzle.<br>
-                
-                4. Strategy: Plan your moves strategically to avoid getting stuck. Think ahead and consider the sequence of moves required to solve the puzzle efficiently.<br>
-                
-                5. Time Limit: The game has a time limit of 60 seconds. Try to complete the puzzle before the time runs out.<br>
-                
-                6. Winning Condition: You win the game when all the puzzle pieces are arranged in the correct order, with the empty space in the bottom-right corner.<br>
-                
-                7. Restart: If you wish to start over or try a new puzzle, you can refresh the page to reset the game.              </p>
-        </div>
-    <div id="custom-modal">
-            <div class="modal-content">
-              <h3>Game Over</h3>
-              <p>Your time is up! You have completed the game.</p>
-              <button onclick="closeModal()">OK</button>
-            </div>
     </div>
-          
-    
+    <div class="instruction-container">
+        <h3>Instructions</h3>
+        <p>
+            1. Objective: Arrange the puzzle pieces in the correct order to complete the puzzle.<br>
+            2. Game Controls: Use the arrow keys on your keyboard to slide the puzzle pieces in the desired direction.<br>
+            3. Movement: You can only move the puzzle piece that is adjacent to the empty space. Use this to your advantage to shift the pieces and solve the puzzle.<br>
+            4. Strategy: Plan your moves strategically to avoid getting stuck. Think ahead and consider the sequence of moves required to solve the puzzle efficiently.<br>
+            5. Time Limit: The game has a time limit of 60 seconds. Try to complete the puzzle before the time runs out.<br>
+            6. Winning Condition: You win the game when all the puzzle pieces are arranged in the correct order, with the empty space in the bottom-right corner.<br>
+            7. Restart: If you wish to start over or try a new puzzle, you can refresh the page to reset the game.
+        </p>
+    </div>
+    <div id="custom-modal">
+        <div class="modal-content">
+            <h3>Game Over</h3>
+            <p>Your time is up! You have completed the game.</p>
+            <button onclick="closeModal()">OK</button> <!-- Button to close the modal dialog -->
+        </div>
+    </div>
 
-        <script type="text/javascript" src="script.js"></script>
-    </body>
+    <script type="text/javascript" src="script.js"></script> <!-- Linking an external JavaScript file -->
+</body>
 </html>
